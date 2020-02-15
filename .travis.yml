@@ -7,9 +7,8 @@ services: postgresql
 
 # Add the environment version
 env:
-  - export DJANGO_SETTINGS_MODULE=django_postgres_example.settings.travis
 # Tell it the things it will need to install when it boots
-
+  - DJANGO=3.0.3 DB=postgres
 
 install:
   - pip wheel -r requirements.txt
