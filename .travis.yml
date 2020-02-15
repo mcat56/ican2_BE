@@ -1,8 +1,7 @@
 
 language: python
-sudo: required
-dist: xenial
-python: "3.7"
+
+python: "3.8.1"
 
 services: postgresql
 
@@ -23,4 +22,5 @@ install:
 
 
 # Tell Travis how to run the test script itself
-script: python manage.py test
+before_script:
+  - psql -c "CREATE DATABASE travisdb;" -U postgres
