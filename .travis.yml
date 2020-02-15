@@ -23,3 +23,5 @@ install:
 # Tell Travis how to run the test script itself
 before_script:
   - psql -c "CREATE DATABASE travisdb;" -U postgres
+
+script: python3 manage.py
