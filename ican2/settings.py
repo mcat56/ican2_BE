@@ -126,7 +126,7 @@ client_encoding: 'UTF8'
 default_transaction_isolation: 'read committed'
 
 db_from_env = dj_database_url.config(conn_max_age=500)
-DATABSES['default'].update(db_from_env)
+DATABASES['default'].update(db_from_env)
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
