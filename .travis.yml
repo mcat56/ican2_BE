@@ -1,0 +1,27 @@
+
+language: python
+
+python: "3.8.1"
+
+services: postgresql
+
+# Add the environment version
+env:
+# Tell it the things it will need to install when it boots
+  - DJANGO=3.0.3 DB=postgres
+
+install:
+  - pip3 wheel -r requirements.txt
+   # Install the dependencies the app itself has
+   # which in this case are kept in a requirements file
+  - pip3 install -r requirements.txt
+   # Install whatever version of Django that's listed above
+   # Travis is currently working on
+  - pip3 install psycopg2 --quiet
+
+
+# Tell Travis how to run the test script itself
+before_script:
+  - psql -c "CREATE DATABASE travisdb;" -U postgres
+
+script: python3 manage.py
